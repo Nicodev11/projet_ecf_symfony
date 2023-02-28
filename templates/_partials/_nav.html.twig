@@ -1,0 +1,30 @@
+{% block header %}
+<header
+  class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
+>
+  <a
+    href="/"
+    class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"
+    spellcheck="false"
+  >
+    <img
+      class="img-fluid logo w-50 ms-3"
+      src="{{ asset('assets/img/logo.png') }}"
+      alt="Logo du site"
+    />
+  </a>
+
+  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+    <li><a href="/" class="nav-link px-2 link-warning fs-4">Accueil</a></li>
+    <li>
+      <a href="/le-restaurant" class="nav-link px-2 link-warning fs-4">Le restaurant</a>
+    </li>
+    <li><a href="/la-carte" class="nav-link px-2 link-warning fs-4">Menu</a></li>
+    <li><a href="/contact" class="nav-link px-2 link-warning fs-4">Contact</a></li>
+  </ul>
+
+  <div class="col-md-3 me-3 text-end">
+    <button type="button" class="btn btn-warning">Reserver une table</button>
+  </div>
+</header>
+{% endblock %}
