@@ -31,6 +31,9 @@ class Plates
     #[ORM\OneToMany(mappedBy: 'plates', targetEntity: Images::class, orphanRemoval: true)]
     private Collection $images;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slug;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -116,6 +119,17 @@ class Plates
             }
         }
 
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
         return $this;
     }
 }
