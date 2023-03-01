@@ -25,7 +25,7 @@ class Plates
     private ?int $price = null;
 
     #[ORM\ManyToOne(inversedBy: 'plates')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(onDelete: 'CASCADE', nullable: false)]
     private ?categories $categories = null;
 
     #[ORM\OneToMany(mappedBy: 'plates', targetEntity: Images::class, orphanRemoval: true)]
