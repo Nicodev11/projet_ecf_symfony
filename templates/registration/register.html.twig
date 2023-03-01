@@ -7,7 +7,7 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <section class="container">
+    <section class="container w-75">
         <h1>Inscription</h1>
         <div class="row">
             <div class="col">
@@ -23,8 +23,10 @@
                 {{ form_row(registrationForm.plainPassword, {label: 'Mot de passe'}) }}
                 
                 </fieldset>
+                {{ form_row(registrationForm.RGPDConsent, {label : 'J\'accepte que mes données personnelles soient conservées par le site pour faciliter mes prochaines réservations'})}}
                 <button type="submit" class="btn btn-warning my-3">S'inscrire</button>
                 {{ form_end(registrationForm) }}
+                
             </div>
         </div>
     </section>
