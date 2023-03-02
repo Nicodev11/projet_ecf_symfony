@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Erreur{%endblock%}
+{% block title %} Page non trouvée !{%endblock%}
 
 
 {% block body %}
@@ -9,19 +9,19 @@
     <div class="text-center row">
       <div class="col-md-6">
         <img
-          src="{{ asset('assets/img/erreur.png') }}"
+          src="{{ asset('assets/img/erreur404.png') }}"
           alt="erreur404"
           class="img-fluid w-75"
         />
       </div>
       <div class="col-md-6 mt-5">
         <p class="fs-3">
-          <span class="text-danger">Oups!</span> le serveur ne repond pas.
+          <span class="text-danger">Oups!</span> Page not found.
         </p>
-        <p class="lead">code de l'erreur : <i>{{status_code}}</i> </p>
-        <p class="lead">Pas de panique, il vous suffit juste de cliquer sur le bouton ci-dessous.</p>
+        <p class="lead">code de l'erreur : <i>{{status_code}}</i></p>
+        <p class="lead">La page que vous recherchez semble introuvable.</p>
         <div class="btn btn-warning">
-          <a href="{{path('app_home')}}" class="nav-link px-2 link-dark fs-5">Retour à l'accueil</a>
+          <a href="{{path('app_home')}}" class="nav-link px-2 link-dark fs-5">Retour a l'accueil</a>
         </div>
       </div>
     </div>

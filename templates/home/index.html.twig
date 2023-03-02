@@ -1,12 +1,5 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-{% if app.user %}
-  <h2>coucou {{app.user.lastname}} {{app.user.firstname}} </h2> 
-{% else %}
- <h2>Vous n'êtes pas connecté</h2>
-{% endif %}
-      
-
+  
 {% endblock %}
