@@ -20,8 +20,6 @@ class ProfileController extends AbstractController
     #[Route('/admin', name:'admin')]
     public function admin(): Response
     {
-        return $this->render('profile/admin.html.twig', [
-            'controller_name' => 'ProfileController',
-        ]);
+        return $this->render('profile/admin.html.twig');
     }
 }

@@ -1,5 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-  
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{asset('assets/css/styleMouse.css')}}" />
 {% endblock %}
+
+{% block javascripts %}
+<script src="{{asset('assets/js/script.js')}}" type="text/javascript"></script>
+{% endblock %}
+
+
+{% block body %}
+<button id="btn" class="btn btn-success">Test</button>
+{% endblock %}
+

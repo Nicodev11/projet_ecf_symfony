@@ -3,15 +3,12 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-    {% for flash_error in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-    {% endfor %}
-
     <section class="container w-75">
         <h1>Inscription</h1>
         <div class="row">
             <div class="col">
                 {{ form_start(registrationForm) }}
+
                 <fieldset class="mb-3">
                     {{ form_row(registrationForm.lastname, {label: 'Nom'}) }}
                     {{ form_row(registrationForm.firstname, {label: 'Prénom'}) }}
@@ -19,18 +16,20 @@
                     
                 </fieldset>
                 <fieldset class="mb-3">
-                {{ form_row(registrationForm.email, {label: 'Adresse email'}) }}
+                {{form_row(registrationForm.email)}}
                 {{ form_row(registrationForm.plainPassword, {label: 'Mot de passe'}) }}
                 
                 </fieldset>
                 {{ form_row(registrationForm.RGPDConsent, {label : 'J\'accepte que mes données personnelles soient conservées par le site pour faciliter mes prochaines réservations'})}}
                 <button type="submit" class="btn btn-warning my-3">S'inscrire</button>
+                <button class="btnJs">test</button>
                 {{ form_end(registrationForm) }}
                 
             </div>
         </div>
     </section>
-    
+
+    {{ dump(registrationForm.email.vars) }}
 
     
 {% endblock %}
