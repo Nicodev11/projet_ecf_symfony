@@ -18,8 +18,6 @@ class Categories
     #[ORM\Column(length: 50)]
     private ?string $name = null;
 
-    
-
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'categories')]
     private ?self $parent = null;
 
@@ -48,7 +46,7 @@ class Categories
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(string $name): ?self
     {
         $this->name = $name;
 

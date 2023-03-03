@@ -36,7 +36,11 @@ $color4: #001f3d; //Midnight Blue
 //------------------------------------------------//
 
 header {
-  font-family: 'font1';
-  font-size: 2rem;
-  font-weight: 700;
+
+  .nav-link {
+    font-family: 'font1';
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
 }
