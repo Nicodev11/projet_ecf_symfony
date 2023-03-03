@@ -1,3 +1,42 @@
-body {
-  background: red !important
+
+
+//------------------------------------------------//
+//--------------- FONT FAMILY --------------------//
+//------------------------------------------------//
+
+
+@font-face {
+  font-family: 'font1';
+  src: url('../font/DancingScript-VariableFont_wght.ttf');
+}
+
+//--- font 2 ---//
+@font-face {
+  font-family: 'font2';
+  src: url('../font/Satisfy-Regular.ttf');
+}
+
+//--- font 3 ---//
+@font-face {
+  font-family: 'font3';
+  src: url('../font//YanoneKaffeesatz-VariableFont_wght.ttf');
+}
+
+//------------------------------------------------//
+//------------------ COLOR -----------------------//
+//------------------------------------------------//
+
+$color1: #d86c60; //Desert Sun
+$color2: #e87a00; //Burt Orange
+$color3: #045174; //Navy Blue
+$color4: #001f3d; //Midnight Blue
+
+//------------------------------------------------//
+//------------------ HEADER ----------------------//
+//------------------------------------------------//
+
+header {
+  font-family: 'font1';
+  font-size: 2rem;
+  font-weight: 700;
 }
