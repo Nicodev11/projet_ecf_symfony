@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MenuController extends AbstractController
 {
-    #[Route('/menu', name: 'app_menu')]
+    #[Route('/la-carte', name: 'app_menu')]
     public function index(): Response
     {
         return $this->render('menu/index.html.twig');

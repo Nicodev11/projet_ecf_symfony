@@ -1,25 +1,22 @@
-
-
 //------------------------------------------------//
 //--------------- FONT FAMILY --------------------//
 //------------------------------------------------//
 
-
 @font-face {
-  font-family: 'font1';
-  src: url('../font/DancingScript-VariableFont_wght.ttf');
+  font-family: "font1";
+  src: url("../font/DancingScript-VariableFont_wght.ttf");
 }
 
 //--- font 2 ---//
 @font-face {
-  font-family: 'font2';
-  src: url('../font/Satisfy-Regular.ttf');
+  font-family: "font2";
+  src: url("../font/Satisfy-Regular.ttf");
 }
 
 //--- font 3 ---//
 @font-face {
-  font-family: 'font3';
-  src: url('../font//YanoneKaffeesatz-VariableFont_wght.ttf');
+  font-family: "font3";
+  src: url("../font//YanoneKaffeesatz-VariableFont_wght.ttf");
 }
 
 //------------------------------------------------//
@@ -34,13 +31,15 @@ $color4: #001f3d; //Midnight Blue
 //------------------------------------------------//
 //------------------ HEADER ----------------------//
 //------------------------------------------------//
+body {
+  position: relative;
 
-header {
-
-  .nav-link {
-    font-family: 'font1';
-    font-size: 2rem;
-    font-weight: 700;
+  header {
+    
+    .nav-link {
+      font-family: "font1";
+      font-size: 2rem;
+      font-weight: 700;
+    }
   }
-  
 }

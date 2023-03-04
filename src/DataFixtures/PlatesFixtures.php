@@ -20,7 +20,6 @@ class PlatesFixtures extends Fixture
         $plates->setPrice(14);
         $category = $this->getReference('cat-'.rand(1, 5));
         $plates->setCategories($category);
-        $plates->setSlug($this->slugger->slug($plates->getName())->lower());
         $manager->persist($plates);
         $manager->flush();
     }
