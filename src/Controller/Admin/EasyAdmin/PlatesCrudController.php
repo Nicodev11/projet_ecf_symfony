@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace App\Controller\Admin\EasyAdmin;
 
 use App\Entity\Plates;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -24,10 +22,17 @@ class PlatesCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('name'),
-            TextEditorField::new('description'),
-            MoneyField::new('Price')->setCurrency('EUR'),
-            AssociationField::new('categories'),
+            TextField::new('name')->setLabel('Nom du plat'),
+            TextEditorField::new('description')->setLabel('Description'),
+            MoneyField::new('Price')->setCurrency('EUR')->setLabel('Prix'),
+            AssociationField::new('categories')->setLabel('Catégorie'),
         ];
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setEntityLabelInPlural('Liste des plats')
+            ->setEntityLabelInSingular('plat');
     }
 }
