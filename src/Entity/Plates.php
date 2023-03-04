@@ -22,7 +22,7 @@ class Plates
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?int $price = null;
+    private ?float $price = null;
 
     #[ORM\ManyToOne(inversedBy: 'plates')]
     #[ORM\JoinColumn(onDelete: 'CASCADE', nullable: false)]
@@ -30,9 +30,6 @@ class Plates
 
     #[ORM\OneToMany(mappedBy: 'plates', targetEntity: Images::class, orphanRemoval: true)]
     private Collection $images;
-
-    #[ORM\Column(length: 255)]
-    private ?string $slug;
 
     public function __construct()
     {
@@ -68,12 +65,12 @@ class Plates
         return $this;
     }
 
-    public function getPrice(): ?int
+    public function getPrice(): ?float
     {
         return $this->price;
     }
 
-    public function setPrice(int $price): self
+    public function setPrice(float $price): self
     {
         $this->price = $price;
 
@@ -119,17 +116,6 @@ class Plates
             }
         }
 
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
         return $this;
     }
 }
