@@ -34,6 +34,10 @@ class Plates
     #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTimeImmutable $created_at = null;
 
+    #[ORM\ManyToOne(inversedBy: 'plates')]
+    #[ORM\JoinColumn(onDelete: 'CASCADE', nullable: false)]
+    private ?Menus $menu = null;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -134,4 +138,17 @@ class Plates
 
         return $this;
     }
+
+    public function getMenu(): ?Menus
+    {
+        return $this->menu;
+    }
+
+    public function setMenu(?Menus $menu): self
+    {
+        $this->menu = $menu;
+
+        return $this;
+    }
+
 }

@@ -1,0 +1,9 @@
+{{ form_start(MenuForm) }}
+<fieldset class="mb-3">
+  {{ form_row(MenuForm.name, { label: "Nom du menu" }) }}
+  {{ form_row(MenuForm.description, { label: "description" }) }}
+  {{ form_row(MenuForm.price, { label: "prix" }) }}
+  
+</fieldset>
+<button type="submit" label class="btn btn-warning my-3">{{button_label|default('Ajouter')}}</button>
+{{ form_end(MenuForm) }}

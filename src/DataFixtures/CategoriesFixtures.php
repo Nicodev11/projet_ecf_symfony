@@ -7,8 +7,6 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-
-
 class CategoriesFixtures extends Fixture
 {
     private $counter = 1;
@@ -20,6 +18,7 @@ class CategoriesFixtures extends Fixture
         $parent = $this->createCategory('Entrées', null, $manager);
         $parent = $this->createCategory('Plats', null, $manager);
         $parent = $this->createCategory('Desserts', null, $manager);
+        $parent = $this->createCategory('Boissons', null, $manager);
         $parent = $this->createCategory('Menus', null, $manager);
 
         $manager->flush();

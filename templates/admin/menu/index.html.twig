@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration des plats{%endblock %} 
+
+{% block stylesheets %}
+  {{ encore_entry_link_tags('admin')}}
+{% endblock %}
+
+{% block javascripts %}
+  {{ encore_entry_script_tags('admin')}}
+{% endblock %}
+
+
+{% block body %}
+<div class="container dashboard">
+  <div class="row grid">
+    {% include "_partials/_adminNav.html.twig" %}
+    <main class="col-9 border border-light bg-white p-2">
+      <h1>Liste des menus</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="text-center" scope="col">ID</th>
+            <th class="text-center" scope="col">Nom du plat</th>
+            <th class="text-center" scope="col">Description</th>
+            <th class="text-center" scope="col">Prix</th>
+            <th class="text-center" scope="col">actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for menu in menus %}
+            <tr>
+              <td scope="row" class="align-middle">{{ menu.id}}</td>
+              <td class="align-middle">{{ menu.name}}</td>
+              <td class="align-middle">{{ menu.description}}</td>
+              <td class="align-middle text-end">{{ menu.price}} €</td>
+              <td class="align-middle text-center">
+                 <a class="btn btn-warning btn-action" href="{{path('admin_plates_edit', {id: menu.id})}}">Modifier</a>
+                 <a class="btn btn-danger btn-action" href="{{path('admin_plates_delete', {id: menu.id})}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce plat ?')">Supprimer</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </main>
+  </div>
+</div>
+{% endblock %}
