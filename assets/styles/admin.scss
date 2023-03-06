@@ -1,5 +1,26 @@
-@import "/assets/styles/app.scss";
+main {
+  //---------------------------------//
+  //----- SCSS sur le Dashboard -----//
+  .dashboard{
 
-h1 {
-  font-family: 'font1';
+    margin-top: 20px;
+
+    h1 {
+      font-family: 'font3';
+      text-align: center;
+    }
+
+    .btn-nav {
+      margin-bottom: 10px;
+    }
+    .btn-actions {
+      margin-bottom: 0;
+    }
+
+    
+  }
+  //---------------------------------//
+  //---------------------------------//
+
+
 }

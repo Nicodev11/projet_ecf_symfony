@@ -31,15 +31,18 @@ $color4: #001f3d; //Midnight Blue
 //------------------------------------------------//
 //------------------ HEADER ----------------------//
 //------------------------------------------------//
-body {
-  position: relative;
 
   header {
     
-    .nav-link {
+      .nav-link {
       font-family: "font1";
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: 700;
     }
   }
-}
+
+  main {
+    h1 {
+      font-family: 'font1';
+    }
+  }

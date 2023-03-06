@@ -4,8 +4,12 @@ namespace App\Controller\Admin;
 
 use App\Entity\Plates;
 use App\Form\PlatesFormType;
+use App\Repository\PlatesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,10 +17,14 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/admin/plats', name: 'admin_plates_')]
 class PlatesController extends AbstractController
 {
+
     #[Route('/', name: 'index')]
-    public function index(): Response
+    public function index(PlatesRepository $platesRepository): Response
     {
-        return $this->render('admin/plates/index.html.twig');
+
+        $plates = $platesRepository->findAll();
+
+        return $this->render('admin/plates/index.html.twig', compact('plates'));
     }
 
 
@@ -67,8 +75,15 @@ class PlatesController extends AbstractController
 
 
     #[Route('/suppression/{id}', name: 'delete')]
-    public function delete(Plates $plates): Response
+    public function delete(Plates $plate): Response
     {
-        return $this->render('admin/plates/index.html.twig');
+        $manager = $this->getDoctrine()->getManager();
+            $manager->remove($plate);
+            $manager->flush();
+
+            $this->addFlash('danger', 'La suppression du plat a bien été prise en compte');
+
+            return $this->redirectToRoute('admin_plates_index');
     }
 }
+
