@@ -1,7 +1,52 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Administration des utilisateurs {% endblock %}
+{% block title %}Administration des plats{%endblock %} 
+
+{% block stylesheets %}
+  {{ encore_entry_link_tags('admin')}}
+{% endblock %}
+
+{% block javascripts %}
+  {{ encore_entry_script_tags('admin')}}
+{% endblock %}
+
 
 {% block body %}
-    <h1>Administration des utilisateurs</h1>
+<div class="container dashboard">
+  <div class="row grid">
+    {% include "_partials/_adminNav.html.twig" %}
+    <main class="col-9 border border-light bg-white p-2">
+      <h1>Liste des utilisateurs</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="text-center" scope="col">Nom</th>
+            <th class="text-center" scope="col">Prénom</th>
+            <th class="text-center" scope="col">email</th>
+            <th class="text-center" scope="col">téléphone</th>
+            <th class="text-center" scope="col">rôle</th>
+            <th class="text-center" scope="col">actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users %}
+            <tr>
+              <td class="align-middle">{{ user.lastname}}</td>
+              <td class="align-middle">{{ user.firstname}}</td>
+              <td class="align-middle text-center">{{ user.email}}</td>
+              <td class="align-middle text-end">{{ user.phone}}</td>
+              <td class="align-middle text-end">{{ user.roles[0]}}</td>
+              <td class="align-middle text-center">
+                 <a class="btn btn-warning btn-action" href="{{path('admin_users_edit', {id: user.id})}}">Modifier</a>
+                 <a class="btn btn-danger btn-action" href="{{path('admin_users_delete', {id: user.id})}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')">Supprimer</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </main>
+  </div>
+</div>
+
+
 {% endblock %}

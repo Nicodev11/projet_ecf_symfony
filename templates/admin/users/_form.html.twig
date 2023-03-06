@@ -1,0 +1,10 @@
+{{ form_start(UsersForm) }}
+<fieldset class="mb-3">
+  {{ form_row(UsersForm.lastname, { label: "Nom" }) }}
+  {{ form_row(UsersForm.firstname, { label: "Prénom" }) }}
+  {{ form_row(UsersForm.email, { label: "Email" }) }}
+  {{ form_row(UsersForm.phone, { label: "Téléphone" }) }}
+  
+</fieldset>
+<button type="submit" label class="btn btn-warning my-3">{{button_label|default('Ajouter')}}</button>
+{{ form_end(UsersForm) }}

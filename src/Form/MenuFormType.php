@@ -16,7 +16,10 @@ class MenuFormType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['attr' => ['class' => 'form-control']])
-            ->add('description', TextareaType::class, ['attr' => ['class' => 'form-control']])
+            ->add('description', TextareaType::class, [
+                'required' => false,
+                'attr' => ['class' => 'form-control']
+                ])
             ->add('price', NumberType::class, ['attr' => ['class' => 'form-control']])
         ;
     }

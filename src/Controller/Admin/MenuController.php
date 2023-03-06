@@ -44,4 +44,37 @@ class MenuController extends AbstractController
             'MenuForm' => $form->createView()
         ]);
     }
+
+    #[Route('/edition/{id}', name: 'edit')]
+    public function edit(Request $request, EntityManagerInterface $entityManager, Menus $menu): Response
+    {
+
+        $form = $this->createForm(MenuFormType::class, $menu);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) { 
+            
+            $entityManager->persist($menu);
+            $entityManager->flush();
+ 
+            $this->addFlash('success', 'La modification du menu a bien été prise en compte');
+
+             return $this->redirectToRoute('admin_menus_index');
+        }
+        return $this->render('admin/menu/EditMenus.html.twig', [
+            'MenuForm' => $form->createView()
+        ]);
+    }
+
+    #[Route('/suppression/{id}', name: 'delete')]
+    public function delete(Menus $menu): Response
+    {
+        $manager = $this->getDoctrine()->getManager();
+            $manager->remove($menu);
+            $manager->flush();
+
+            $this->addFlash('danger', 'La suppression du plat a bien été prise en compte');
+
+            return $this->redirectToRoute('admin_menus_index');
+    }
 }
