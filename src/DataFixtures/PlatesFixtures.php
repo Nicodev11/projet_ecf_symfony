@@ -10,7 +10,9 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class PlatesFixtures extends Fixture
 {
 
-    public function __construct(private SluggerInterface $slugger) {}
+    public function __construct(private SluggerInterface $slugger) {
+
+    }
 
     public function load(ObjectManager $manager): void
     {

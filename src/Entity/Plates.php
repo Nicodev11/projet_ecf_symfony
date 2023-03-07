@@ -31,6 +31,9 @@ class Plates
     #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTimeImmutable $created_at = null;
 
+    #[ORM\OneToOne(mappedBy: 'plates', cascade: ['persist', 'remove'])]
+    private ?Images $images = null;
+
     public function __toString()
     {
         return $this->name;
@@ -104,6 +107,28 @@ class Plates
     public function setCreatedAt(\DateTimeImmutable $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getImages(): ?Images
+    {
+        return $this->images;
+    }
+
+    public function setImages(?Images $images): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($images === null && $this->images !== null) {
+            $this->images->setPlates(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($images !== null && $images->getPlates() !== $this) {
+            $images->setPlates($this);
+        }
+
+        $this->images = $images;
 
         return $this;
     }
