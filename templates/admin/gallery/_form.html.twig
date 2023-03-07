@@ -1,0 +1,10 @@
+{{ form_start(GalleryForm) }}
+<fieldset class="mb-3">
+  {{ form_row(GalleryForm.name, { label: "Nom de l'image" }) }}
+  {{ form_row(GalleryForm.description, { label: "description" }) }}
+  {{ form_row(GalleryForm.plates, { label: "plat" }) }}
+  {{ form_row(GalleryForm.image_filename, { label: "photo du plat" }) }}
+  
+</fieldset>
+<button type="submit" label class="btn btn-warning my-3">{{button_label|default('Ajouter')}}</button>
+{{ form_end(GalleryForm) }}

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration des plats{%endblock %} 
+
+{% block stylesheets %}
+  {{ encore_entry_link_tags('admin')}}
+{% endblock %}
+
+{% block javascripts %}
+  {{ encore_entry_script_tags('admin')}}
+{% endblock %}
+
+
+{% block body %}
+<div class="container dashboard">
+  <div class="row grid">
+    {% include "_partials/_adminNav.html.twig" %}
+    <main class="col-9 border border-light bg-white p-2">
+      <h1>Liste des images</h1>
+      <div class="input-group mx-auto my-3 w-50" >
+        <span class="input-group-text" id="basic-addon1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        </span>
+        <input type="text" class="form-control inputSearch" placeholder="Username" id="searchInput" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      <table class="table table-striped">
+        <thead>
+          
+          <tr>
+            <th class="text-center" scope="col">ID</th>
+            <th class="text-center" scope="col">Nom de la photo</th>
+            <th class="text-center" scope="col">Description</th>
+            <th class="text-center" scope="col">Nom du plat</th>
+            <th class="text-center" scope="col">actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for image in images %}
+            <tr>
+              <td scope="row" class="align-middle text-center">{{ image.id}}</td>
+              <td class="align-middle text-center">{{ image.name}}</td>
+              <td class="align-middle text-center">{{ image.description}}</td>
+              <td class="align-middle text-center">{{ image.plates}}</td>
+              <td class="align-middle text-center">
+                 <a class="btn btn-warning btn-action" href="{{path('admin_gallery_edit', {id: image.id})}}">Modifier</a>
+                 <a class="btn btn-danger btn-action" href="{{path('admin_gallery_delete', {id: image.id})}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce plat ?')">Supprimer</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </main>
+  </div>
+</div>
+{% endblock %}

@@ -34,25 +34,6 @@ class PlatesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) { 
-
-            //$imageFile = $form->get('images')->getData();
-            
-            //if ($imageFile) {
-            //$originalFileName = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-            //$safeFilename = $slugger->slug($originalFileName);
-            //    $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
-//
-            //    try {
-            //        $imageFile->move(
-            //            $this->getParameter('images_directory'),
-            //            $newFilename
-            //        );
-            //    } catch (FileException $e) {
-            //        // ... handle exception if something happens during file upload
-            //    }
-//
-            //    //$plate->getImages($newFilename);
-            //}
             
             $entityManager->persist($plate);
             $entityManager->flush();

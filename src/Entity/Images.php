@@ -22,6 +22,9 @@ class Images
     #[ORM\OneToOne(inversedBy: 'images', cascade: ['persist', 'remove'])]
     private ?Plates $plates = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $imageFilename = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Images
     public function setPlates(?Plates $plates): self
     {
         $this->plates = $plates;
+
+        return $this;
+    }
+
+    public function getImageFilename(): ?string
+    {
+        return $this->imageFilename;
+    }
+
+    public function setImageFilename(string $imageFilename): self
+    {
+        $this->imageFilename = $imageFilename;
 
         return $this;
     }
