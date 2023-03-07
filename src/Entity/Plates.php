@@ -28,19 +28,17 @@ class Plates
     #[ORM\JoinColumn(onDelete: 'CASCADE', nullable: false)]
     private ?Categories $categories = null;
 
-    #[ORM\OneToMany(mappedBy: 'plates', targetEntity: Images::class, orphanRemoval: true)]
-    private Collection $images;
-
     #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTimeImmutable $created_at = null;
 
-    #[ORM\ManyToOne(inversedBy: 'plates')]
-    #[ORM\JoinColumn(onDelete: 'CASCADE', nullable: false)]
-    private ?Menus $menu = null;
+    public function __toString()
+    {
+        return $this->name;
+    }
+
 
     public function __construct()
     {
-        $this->images = new ArrayCollection();
         $this->created_at = new \DateTimeImmutable();
     }
 
@@ -97,35 +95,6 @@ class Plates
         return $this;
     }
 
-    /**
-     * @return Collection<int, Images>
-     */
-    public function getImages(): Collection
-    {
-        return $this->images;
-    }
-
-    public function addImage(Images $image): self
-    {
-        if (!$this->images->contains($image)) {
-            $this->images->add($image);
-            $image->setPlates($this);
-        }
-
-        return $this;
-    }
-
-    public function removeImage(Images $image): self
-    {
-        if ($this->images->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getPlates() === $this) {
-                $image->setPlates(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getCreatedAt(): ?\DateTimeImmutable
     {
@@ -135,18 +104,6 @@ class Plates
     public function setCreatedAt(\DateTimeImmutable $created_at): self
     {
         $this->created_at = $created_at;
-
-        return $this;
-    }
-
-    public function getMenu(): ?Menus
-    {
-        return $this->menu;
-    }
-
-    public function setMenu(?Menus $menu): self
-    {
-        $this->menu = $menu;
 
         return $this;
     }

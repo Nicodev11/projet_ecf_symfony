@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UsersController extends AbstractController
 {
     #[Route('/', name: 'index')]
-    public function index(UsersRepository $usersRepository): Response
+    public function index(Request $request, UsersRepository $usersRepository): Response
     {
         $users = $usersRepository->findAll([]);
 

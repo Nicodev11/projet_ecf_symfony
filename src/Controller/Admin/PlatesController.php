@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/admin/plats', name: 'admin_plates_')]
 class PlatesController extends AbstractController
@@ -26,13 +27,32 @@ class PlatesController extends AbstractController
 
 
     #[Route('/ajout', name: 'add')]
-    public function add(Request $request ,EntityManagerInterface $entityManager): Response
+    public function add(Request $request ,EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $plate = new Plates();
         $form = $this->createForm(PlatesFormType::class, $plate);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) { 
+
+            //$imageFile = $form->get('images')->getData();
+            
+            //if ($imageFile) {
+            //$originalFileName = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+            //$safeFilename = $slugger->slug($originalFileName);
+            //    $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+//
+            //    try {
+            //        $imageFile->move(
+            //            $this->getParameter('images_directory'),
+            //            $newFilename
+            //        );
+            //    } catch (FileException $e) {
+            //        // ... handle exception if something happens during file upload
+            //    }
+//
+            //    //$plate->getImages($newFilename);
+            //}
             
             $entityManager->persist($plate);
             $entityManager->flush();

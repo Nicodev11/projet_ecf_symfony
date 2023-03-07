@@ -1,3 +1,3 @@
 import '../styles/home.scss'
 
-console.log('Le fichier Home est en lecture')
+console.log('Le fichier Home est encore en lecture')

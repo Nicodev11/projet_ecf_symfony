@@ -62,7 +62,7 @@ class MenuController extends AbstractController
              return $this->redirectToRoute('admin_menus_index');
         }
         return $this->render('admin/menu/EditMenus.html.twig', [
-            'MenuForm' => $form->createView()
+            'MenuForm' => $form->createView(),
         ]);
     }
 

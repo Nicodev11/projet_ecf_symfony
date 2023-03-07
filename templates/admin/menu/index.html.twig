@@ -17,16 +17,17 @@
     {% include "_partials/_adminNav.html.twig" %}
     <main class="col-9 border border-light bg-white p-2">
       <h1>Liste des menus</h1>
-      <div class="input-group mx-auto my-3 w-50">
+      <div class="input-group mx-auto my-3 w-50" >
         <span class="input-group-text" id="basic-addon1">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
           </svg>
         </span>
-        <input type="text" class="form-control inputSearch" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" class="form-control inputSearch" placeholder="Username" id="searchInput" aria-label="Username" aria-describedby="basic-addon1">
       </div>
       <table class="table table-striped">
         <thead>
+          
           <tr>
             <th class="text-center" scope="col">ID</th>
             <th class="text-center" scope="col">Nom du menu</th>
@@ -41,6 +42,7 @@
               <td scope="row" class="align-middle">{{ menu.id}}</td>
               <td class="align-middle">{{ menu.name}}</td>
               <td class="align-middle">{{ menu.description}}</td>
+              <td class="align-middle">{{ menu.entries}}</td>
               <td class="align-middle text-end">{{ menu.price}} €</td>
               <td class="align-middle text-center">
                  <a class="btn btn-warning btn-action" href="{{path('admin_menus_edit', {id: menu.id})}}">Modifier</a>

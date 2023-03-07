@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Menus;
+use App\Entity\Plates;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -20,7 +22,10 @@ class MenuFormType extends AbstractType
                 'required' => false,
                 'attr' => ['class' => 'form-control']
                 ])
-            ->add('price', NumberType::class, ['attr' => ['class' => 'form-control']])
+            ->add('entries', TextareaType::class,  ['attr' => ['class' => 'form-control']])
+            ->add('dishes', TextareaType::class,  ['attr' => ['class' => 'form-control']])
+            ->add('desserts', TextareaType::class,  ['attr' => ['class' => 'form-control']])
+            ->add('price', NumberType::class , ['attr' => ['class' => 'form-control']])
         ;
     }
 

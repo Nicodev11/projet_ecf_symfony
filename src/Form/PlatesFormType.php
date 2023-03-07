@@ -3,8 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Plates;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -20,7 +20,13 @@ class PlatesFormType extends AbstractType
             ->add('description', TextareaType::class, ['attr' => ['class' => 'form-control']])
             ->add('price', NumberType::class, ['attr' => ['class' => 'form-control']])
             ->add('categories', null , ['attr' => ['class' => 'form-control']])
-            ->add('menu', null , ['attr' => ['class' => 'form-control']])
+            ->add('images', FileType::class, [
+                'label' => 'images',
+                'multiple' => false,
+                'mapped' => false,
+                'required' => false,
+                'attr' => ['class' => 'form-control']
+            ])
         ;
     }
 
