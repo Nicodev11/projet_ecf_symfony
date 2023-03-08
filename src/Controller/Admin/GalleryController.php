@@ -26,13 +26,32 @@ class GalleryController extends AbstractController
 
 
     #[Route('/ajout', name: 'add')]
-    public function add(Request $request ,EntityManagerInterface $entityManager): Response
+    public function add(Request $request ,EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $image = new Images();
         $form = $this->createForm(GalleryFormType::class, $image);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) { 
+
+            $imageFile = $form->get('image_filename')->getData();
+            
+            if ($imageFile) {
+            $originalFileName = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+            $safeFilename = $slugger->slug($originalFileName);
+            $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                $image->setImageFilename($newFilename);
+            }
             
             $entityManager->persist($image);
             $entityManager->flush();
@@ -57,7 +76,7 @@ class GalleryController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) { 
 
-            $imageFile = $form->get('images')->getData();
+            $imageFile = $form->get('image')->getData();
             
             if ($imageFile) {
             $originalFileName = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);

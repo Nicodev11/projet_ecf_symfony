@@ -19,11 +19,11 @@ class Images
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\OneToOne(inversedBy: 'images', cascade: ['persist', 'remove'])]
-    private ?Plates $plates = null;
-
     #[ORM\Column(length: 255)]
     private ?string $imageFilename = null;
+
+    #[ORM\ManyToOne(inversedBy: 'images')]
+    private ?Plates $Plates = null;
 
     public function getId(): ?int
     {
@@ -54,18 +54,6 @@ class Images
         return $this;
     }
 
-    public function getPlates(): ?Plates
-    {
-        return $this->plates;
-    }
-
-    public function setPlates(?Plates $plates): self
-    {
-        $this->plates = $plates;
-
-        return $this;
-    }
-
     public function getImageFilename(): ?string
     {
         return $this->imageFilename;
@@ -74,6 +62,18 @@ class Images
     public function setImageFilename(string $imageFilename): self
     {
         $this->imageFilename = $imageFilename;
+
+        return $this;
+    }
+
+    public function getPlates(): ?Plates
+    {
+        return $this->Plates;
+    }
+
+    public function setPlates(?Plates $Plates): self
+    {
+        $this->Plates = $Plates;
 
         return $this;
     }

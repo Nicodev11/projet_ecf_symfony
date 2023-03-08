@@ -31,8 +31,10 @@ class Plates
     #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTimeImmutable $created_at = null;
 
-    #[ORM\OneToOne(mappedBy: 'plates', cascade: ['persist', 'remove'])]
-    private ?Images $images = null;
+    #[ORM\OneToMany(mappedBy: 'Plates', targetEntity: Images::class)]
+    private Collection $images;
+
+
 
     public function __toString()
     {
@@ -43,6 +45,7 @@ class Plates
     public function __construct()
     {
         $this->created_at = new \DateTimeImmutable();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -111,24 +114,32 @@ class Plates
         return $this;
     }
 
-    public function getImages(): ?Images
+    /**
+     * @return Collection<int, Images>
+     */
+    public function getImages(): Collection
     {
         return $this->images;
     }
 
-    public function setImages(?Images $images): self
+    public function addImage(Images $image): self
     {
-        // unset the owning side of the relation if necessary
-        if ($images === null && $this->images !== null) {
-            $this->images->setPlates(null);
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setPlates($this);
         }
 
-        // set the owning side of the relation if necessary
-        if ($images !== null && $images->getPlates() !== $this) {
-            $images->setPlates($this);
-        }
+        return $this;
+    }
 
-        $this->images = $images;
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getPlates() === $this) {
+                $image->setPlates(null);
+            }
+        }
 
         return $this;
     }

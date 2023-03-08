@@ -22,7 +22,7 @@ class GalleryFormType extends AbstractType
             ->add('plates', EntityType::class, [
                 'class' => Plates::class,
                 'attr' => ['class' => 'form-control']])
-            ->add('images', FileType::class, [
+            ->add('image_filename', FileType::class, [
                 'label' => 'name',
                 'multiple' => false,
                 'mapped' => false,
@@ -30,9 +30,9 @@ class GalleryFormType extends AbstractType
                 'attr' => ['class' => 'form-control'],
                 'constraints' => [
                     new File([
-                        'maxSize' => '1024k',
                         'mimeTypes' => [
                             'image/png',
+                            'image/jpeg',
                             'image/jpg',
                             'image/webp',
                         ],

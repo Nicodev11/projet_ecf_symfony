@@ -1,3 +1,3 @@
-import '../styles/admin.scss'
+import "../styles/admin.scss";
 
-console.log('Le fichier Admin est encore en relecture')
+console.log("Le fichier admin est encore en relecture");
