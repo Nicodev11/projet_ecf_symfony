@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20230308121252 extends AbstractMigration
+final class Version20230309221328 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,12 +20,12 @@ final class Version20230308121252 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE images DROP INDEX UNIQ_E01FBE6A9DC48164, ADD INDEX IDX_E01FBE6A9DC48164 (plates_id)');
+        $this->addSql('ALTER TABLE restaurant_hours ADD closed TINYINT(1) DEFAULT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE images DROP INDEX IDX_E01FBE6A9DC48164, ADD UNIQUE INDEX UNIQ_E01FBE6A9DC48164 (plates_id)');
+        $this->addSql('ALTER TABLE restaurant_hours DROP closed');
     }
 }

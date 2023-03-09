@@ -1,0 +1,53 @@
+{% block javascripts %}
+  <script>
+    const checkBoxLunch = document.getElementById("flexCheckDefault");
+
+    console.log(checkBoxLunch)
+  </script>
+{% endblock  %}
+
+{% block body %}
+  {{ form_start(HoursForm) }}
+<fieldset class="mb-3">
+  {{ form_row(HoursForm.Day) }}
+  <fieldset class="container mt-3">
+    <legend>Midi</legend>
+    <div class="row">
+      <div class="col-4">
+        {{ form_row(HoursForm.Opening_lunch, { label: "heure d'ouverture" }) }}
+      </div>
+      <div class="col-4">
+        {{ form_row(HoursForm.Closing_lunch, { label: "Heure de fermeture" }) }}
+      </div>
+      <div class="col-4">
+        <td class="align-middle text-center">
+          {{ form_row(HoursForm.Closed )}}
+        </td>
+      </div>
+    </div>
+  </fieldset>
+{{ dump(HoursForm) }}
+  <fieldset class="container mt-3">
+    <legend>Soir</legend>
+    <div class="row">
+      <div class="col-4"> 
+        {{ form_row(HoursForm.Opening_dinner, { label: "heure d'ouverture" }) }}
+      </div>
+      <div class="col-4">
+          {{ form_row(HoursForm.Closing_dinner, { label: "Heure de fermeture" }) }}
+      </div>
+      <div class="col-4">
+        <td class="align-middle text-center">
+          {{ form_row(HoursForm.ClosedDinner )}}
+        </td>
+      </div>
+    </div>
+  </fieldset>
+  
+</fieldset>
+<button type="submit" label class="btn btn-warning my-3">{{button_label|default('Ajouter')}}</button>
+{{ form_end(HoursForm) }}
+
+{% endblock  %}
+
+

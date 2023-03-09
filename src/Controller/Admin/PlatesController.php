@@ -27,7 +27,7 @@ class PlatesController extends AbstractController
 
 
     #[Route('/ajout', name: 'add')]
-    public function add(Request $request ,EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+    public function add(Request $request ,EntityManagerInterface $entityManager): Response
     {
         $plate = new Plates();
         $form = $this->createForm(PlatesFormType::class, $plate);

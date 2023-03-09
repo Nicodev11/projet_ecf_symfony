@@ -25,13 +25,17 @@
         </span>
         <input type="text" class="form-control inputSearch" placeholder="Username" id="searchInput" aria-label="Username" aria-describedby="basic-addon1">
       </div>
-          {% for image in images %} 
-
-          <img src="{{asset('assets/uploads/' ~ image.imageFilename )}}" class="img-thumbnail w-25 h-25 object-fit-cover border rounded" alt="{{image.imageFilename}}">
-          <a class="btn btn-warning btn-action" href="{{path('admin_gallery_edit', {id: image.id})}}">Modifier</a>
-          <a class="btn btn-danger btn-action" href="{{path('admin_gallery_delete', {id: image.id})}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce plat ?')">Supprimer</a>
-
-          {% endfor %}
+      <div class="container">
+        <div class="row">
+            {% for image in images %} 
+          <div class="col-3 d-flex flex-column">
+            <img src="{{asset('assets/uploads/' ~ image.imageFilename )}}" class="img-thumbnail h-50 object-fit-cover border rounded" alt="{{image.imageFilename}}">
+            <a class="btn btn-danger btn-action" href="{{path('admin_gallery_delete', {id: image.id})}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce plat ?')">Supprimer</a>
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+      </div>
     </main>
   </div>
 </div>

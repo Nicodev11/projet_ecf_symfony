@@ -9,13 +9,19 @@
         <!--- Feuilles de styles --->
         <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="{{asset('build/app.css')}}">
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+            <script src="{{asset(build/admin.js)}}"></script>
+        {% endblock %}
 
         <!--- Fichiers JS --->
         <script src="{{ asset('assets/js/bootstrap.bundle.min.js')}}" defer></script>
         <link rel="stylesheet" href="{{asset('build/app.js')}}">
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app')}}
+            {{ encore_entry_script_tags('home')}}
+            {{ encore_entry_script_tags('admin')}}
+        {% endblock %}
     </head>
     <body>
         <header>
