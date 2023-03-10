@@ -20,6 +20,7 @@ class GalleryFormType extends AbstractType
             ->add('name', TextType::class, ['attr' => ['class' => 'form-control']])
             ->add('description', TextType::class, ['attr' => ['class' => 'form-control']])
             ->add('plates', EntityType::class, [
+                'placeholder' => 'Ajouter à un plat',
                 'class' => Plates::class,
                 'attr' => ['class' => 'form-control']])
             ->add('image_filename', FileType::class, [

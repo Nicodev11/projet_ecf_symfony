@@ -13,14 +13,14 @@
 
 {% block body %}
 <div class="container dashboard">
+  <h1>Liste des plats</h1>
   <div class="row grid">
     {% include "_partials/_adminNav.html.twig" %}
     <main class="col-9 border border-light bg-white p-2">
-      <h1>Liste des plats</h1>
+      
       <table class="table table-striped">
         <thead>
           <tr>
-            <th class="text-center" scope="col">ID</th>
             <th class="text-center" scope="col">Nom du plat</th>
             <th class="text-center" scope="col">Description</th>
             <th class="text-center" scope="col">Catégorie</th>
@@ -31,9 +31,8 @@
         <tbody>
           {% for plate in plates %}
             <tr>
-              <td scope="row" class="align-middle">{{ plate.id}}</td>
-              <td class="align-middle">{{ plate.name}}</td>
-              <td class="align-middle">{{ plate.description}}</td>
+              <td class="align-middle text-center">{{ plate.name}}</td>
+              <td class="align-middle text-center">{{ plate.description}}</td>
               <td class="align-middle text-center">{{ plate.categories.name}}</td>
               <td class="align-middle text-end">{{ plate.price}} €</td>
               <td class="align-middle text-center">

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\MenusRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MenusRepository::class)]
@@ -13,44 +14,42 @@ class Menus
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
-
     #[ORM\Column]
     private ?float $price = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255,)]
-    private ?string $entries = null;
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $dishes = null;
+    private ?string $entries1 = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $entries2 = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $desserts = null;
+    private ?string $dishe1 = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $dishe2 = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $dessert1 = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $dessert2 = null;
+
 
     public function __construct()
     {
-        
+
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     public function getPrice(): ?float
@@ -77,40 +76,89 @@ class Menus
         return $this;
     }
 
-    public function getEntries(): ?string
+    public function getName(): ?string
     {
-        return $this->entries;
+        return $this->name;
     }
 
-    public function setEntries(?string $entries): self
+    public function setName(string $name): self
     {
-        $this->entries = $entries;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getDishes(): ?string
+    public function getEntries1(): ?string
     {
-        return $this->dishes;
+        return $this->entries1;
     }
 
-    public function setDishes(string $dishes): self
+    public function setEntries1(string $entries1): self
     {
-        $this->dishes = $dishes;
+        $this->entries1 = $entries1;
 
         return $this;
     }
 
-    public function getDesserts(): ?string
+    public function getEntries2(): ?string
     {
-        return $this->desserts;
+        return $this->entries2;
     }
 
-    public function setDesserts(string $desserts): self
+    public function setEntries2(?string $entries2): self
     {
-        $this->desserts = $desserts;
+        $this->entries2 = $entries2;
 
         return $this;
     }
-    
+
+    public function getDishe1(): ?string
+    {
+        return $this->dishe1;
+    }
+
+    public function setDishe1(string $dishe1): self
+    {
+        $this->dishe1 = $dishe1;
+
+        return $this;
+    }
+
+    public function getDishe2(): ?string
+    {
+        return $this->dishe2;
+    }
+
+    public function setDishe2(?string $dishe2): self
+    {
+        $this->dishe2 = $dishe2;
+
+        return $this;
+    }
+
+    public function getDessert1(): ?string
+    {
+        return $this->dessert1;
+    }
+
+    public function setDessert1(string $dessert1): self
+    {
+        $this->dessert1 = $dessert1;
+
+        return $this;
+    }
+
+    public function getDessert2(): ?string
+    {
+        return $this->dessert2;
+    }
+
+    public function setDessert2(?string $dessert2): self
+    {
+        $this->dessert2 = $dessert2;
+
+        return $this;
+    }
+
+
 }

@@ -1,10 +1,33 @@
 {{ form_start(MenuForm) }}
 <fieldset class="mb-3">
-  {{ form_row(MenuForm.name, { label: "Nom du menu" }) }}
-  {{ form_row(MenuForm.description, { label: "description" }) }}
-  {{ form_row(MenuForm.entries, { label: "Entrée" }) }}
-  {{ form_row(MenuForm.dishes, { label: "Plat" }) }}
-  {{ form_row(MenuForm.desserts, { label: "Dessert" }) }}
+    {{ form_row(MenuForm.name, { label: "Nom du menu" }) }}
+    {{ form_row(MenuForm.description, { label: "description" }) }}
+  <div class="row entries">
+    <div class="col">
+      {{ form_row(MenuForm.entries1, { label: "Entrée" }) }}
+    </div>
+    <div class="col">
+      {{ form_row(MenuForm.entries2, { label: 'facultatif' }) }}
+    </div>
+  </div>
+
+  <div class="row dishes">
+    <div class="col">
+      {{ form_row(MenuForm.dishe1, { label: "Plat" }) }}
+    </div>
+    <div class="col">
+      {{ form_row(MenuForm.dishe2, { label: "facultatif" }) }}
+    </div>
+  </div>
+
+  <div class="row desserts">
+    <div class="col">
+      {{ form_row(MenuForm.dessert1, { label: "Dessert" }) }}
+    </div>
+    <div class="col">
+      {{ form_row(MenuForm.dessert2, { label: "facultatif" }) }}
+    </div>
+  </div>
   {{ form_row(MenuForm.price, { label: "prix" }) }}
 </fieldset>
 <button type="submit" label class="btn btn-warning my-3">{{button_label|default('Ajouter')}}</button>

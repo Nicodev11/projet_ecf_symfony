@@ -1,89 +1,176 @@
 <aside class="left-part admin-nav col-3 boder boder-light bg-white p-2">
+  <div class="accordion" id="accordionPanelsStayOpenExample">
 
-  <div class="card">
-    <div class="card-img-top p-2 bg-light fw-bold">Plats</div>
-    <div class="card-body">
-      <ul class="list-unstyled">
-        <li>
-          <a
-            href="{{ path('admin_plates_index') }}"
-            class="btn btn-outline-info btn-nav w-100"
-            ><i class="bi bi-list-ul"></i> Liste des plats</a
-          >
-        </li>
-        <li>
-          <a
-            href="{{ path('admin_plates_add') }}"
-            class="btn btn-outline-success btn-nav w-100"
-          >
-            <i class="bi bi-plus-circle-fill "></i>
-            Ajouter un plat
-          </a>
-        </li>
-      </ul>
-    </div>  
-  </div>
-
-  
-  <div class="card mt-3">
-    <div class="card-img-top p-2 bg-light fw-bold ">Menus</div>
-      <div class="card-body">
-        <ul class="list-unstyled">
-          <li>
-            <a
-              href="{{ path('admin_menus_index') }}"
-              class="btn btn-outline-info btn-nav w-100"
-              ><i class="bi bi-list-ul"></i> Liste des menus </a
-            >
-          </li>
-          <li>
-            <a
-              href="{{ path('admin_menus_add') }}"
-              class="btn btn-outline-success btn-nav w-100"
-            >
-              <i class="bi bi-plus-circle-fill "></i>
-              Ajouter un menu
-            </a>
-          </li>
-        </ul>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+          
+          La carte
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+        <div class="accordion-body">
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li>
+                <a
+                  href="{{ path('admin_plates_index') }}"
+                  class="btn btn-outline-info btn-nav w-100"
+                  ><i class="bi bi-list-ul"></i> Liste des plats</a
+                >
+              </li>
+              <li>
+                <a
+                  href="{{ path('admin_plates_add') }}"
+                  class="btn btn-outline-success btn-nav w-100"
+                >
+                  <i class="bi bi-plus-circle-fill "></i>
+                  Ajouter un plat
+                </a>
+              </li>
+            </ul>
+          </div>  
+        </div>
       </div>
     </div>
 
-    <div class="card mt-3">
-      <div class="card-img-top p-2 bg-light fw-bold ">Galerie d'image</div>
-        <div class="card-body">
-          <ul class="list-unstyled">
-            <li>
-              <a
-                href="{{ path('admin_gallery_index') }}"
-                class="btn btn-outline-info btn-nav w-100"
-                ><i class="bi bi-list-ul"></i> Liste des images </a
-              >
-            </li>
-            <li>
-              <a
-                href="{{ path('admin_gallery_add') }}"
-                class="btn btn-outline-success btn-nav w-100"
-              >
-                <i class="bi bi-plus-circle-fill "></i>
-                Ajouter une image
-              </a>
-            </li>
-          </ul>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-heading me-3" viewBox="0 0 16 16">
+            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+            <path d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"/>
+          </svg>
+          Menus
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+        <div class="accordion-body">
+              <div class="card-body">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      href="{{ path('admin_menus_index') }}"
+                      class="btn btn-outline-info btn-nav w-100"
+                      ><i class="bi bi-list-ul"></i> Liste des menus </a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="{{ path('admin_menus_add') }}"
+                      class="btn btn-outline-success btn-nav w-100"
+                    >
+                      <i class="bi bi-plus-circle-fill "></i>
+                      Ajouter un menu
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
         </div>
       </div>
 
 
-  <div class="card mt-3">
-  <div class="card-img-top p-2 bg-light fw-bold ">Utilisateurs</div>
-    <div class="card-body">
-          <a
-            href="{{ path('admin_users_index') }}"
-            class="btn btn-outline-info btn-nav w-100"
-            ><i class="bi bi-list-ul"></i> Liste des utilisateurs</a
-          >
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-images me-3" viewBox="0 0 16 16">
+            <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+            <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z"/>
+          </svg>
+          Galerie d'images
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+        <div class="accordion-body">
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li>
+                <a
+                  href="{{ path('admin_gallery_index') }}"
+                  class="btn btn-outline-info btn-nav w-100"
+                  ><i class="bi bi-list-ul"></i> Liste des images </a
+                >
+              </li>
+              <li>
+                <a
+                  href="{{ path('admin_gallery_add') }}"
+                  class="btn btn-outline-success btn-nav w-100"
+                >
+                  <i class="bi bi-plus-circle-fill "></i>
+                  Ajouter une image
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock me-3" viewBox="0 0 16 16">
+            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+          </svg>
+          horaires
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
+        <div class="accordion-body">
+              <div class="card-body">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      href="{{ path('admin_restaurant_index') }}"
+                      class="btn btn-outline-info btn-nav w-100"
+                      ><i class="bi bi-list-ul"></i> Liste des horaires </a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </div>
+      </div>
+
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people me-3" viewBox="0 0 16 16">
+            <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/>
+          </svg>
+          Utilisateurs
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+        <div class="accordion-body">
+            <div class="card-body">
+                <a
+                  href="{{ path('admin_users_index') }}"
+                  class="btn btn-outline-info btn-nav w-100"
+                  ><i class="bi bi-list-ul"></i> Liste des utilisateurs</a
+                >
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  
+  
+
+    
+
+
+  
 
 
 </aside>

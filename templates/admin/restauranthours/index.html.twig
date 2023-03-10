@@ -13,10 +13,11 @@
 
 {% block body %}
 <div class="container dashboard">
+  <h1>Horaires du restaurant</h1>
   <div class="row grid">
     {% include "_partials/_adminNav.html.twig" %}
     <main class="col-9 border border-light bg-white p-2">
-      <h1>Horaires du restaurant</h1>
+      
       <table class="table table-striped">
         <thead>
           <tr>
@@ -29,15 +30,25 @@
         </thead>
         <tbody>
           {% for date in hours %}
-            <tr>
+            <tr> 
               <td class="align-middle">{{ date.Day}}</td>
-              <td class="align-middle text-center">{{ date.OpeningLunch|date("H:i")}} - {{ date.ClosingLunch|date("H:i")}}</td>
-              <td class="align-middle text-center">{{ date.OpeningDinner|date("H:i")}} - {{ date.ClosingDinner|date("H:i")}}</td>
+              </td>
+                {% if date.Closed %}
+                  <td class="align-middle text-center">Fermé</td>
+                {% else %}
+                    <td class="align-middle text-center">{{ date.OpeningLunch|date("H:i")}} - {{ date.ClosingLunch|date("H:i")}}</td>
+                {% endif %}
+                {% if date.ClosedDinner %}
+                  <td class="align-middle text-center">Fermé</td>
+                {% else %}
+                  <td class="align-middle text-center">{{ date.OpeningDinner|date("H:i")}} - {{ date.ClosingDinner|date("H:i")}}</td>
+                {% endif %}
               <td class="align-middle text-center">
                  <a class="btn btn-warning btn-action" href="{{path('admin_restaurant_edit', {Day: date.Day})}}">Modifier</a>
               </td>
             </tr>
           {% endfor %}
+          {{ dump() }}
         </tbody>
       </table>
     </main>

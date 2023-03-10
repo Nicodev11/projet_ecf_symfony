@@ -30,6 +30,7 @@ class Categories
     #[ORM\Column(length: 255)]
     private ?string $slug;
 
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -140,4 +141,5 @@ class Categories
     {
         return $this->name;
     }
+
 }

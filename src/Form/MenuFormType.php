@@ -22,9 +22,21 @@ class MenuFormType extends AbstractType
                 'required' => false,
                 'attr' => ['class' => 'form-control']
                 ])
-            ->add('entries', TextareaType::class,  ['attr' => ['class' => 'form-control']])
-            ->add('dishes', TextareaType::class,  ['attr' => ['class' => 'form-control']])
-            ->add('desserts', TextareaType::class,  ['attr' => ['class' => 'form-control']])
+            ->add('entries1', TextareaType::class,  ['attr' => ['class' => 'form-control']])
+            ->add('entries2', TextareaType::class,  [
+                'required' => false,
+                'attr' => ['class' => 'form-control']
+                ])
+            ->add('dishe1', TextareaType::class,  ['attr' => ['class' => 'form-control']])
+            ->add('dishe2', TextareaType::class,  [
+                'required' => false,
+                'attr' => ['class' => 'form-control']
+                ])
+            ->add('dessert1', TextareaType::class,  ['attr' => ['class' => 'form-control']])
+            ->add('dessert2', TextareaType::class,  [
+                'required' => false,
+                'attr' => ['class' => 'form-control']
+                ])
             ->add('price', NumberType::class , ['attr' => ['class' => 'form-control']])
         ;
     }

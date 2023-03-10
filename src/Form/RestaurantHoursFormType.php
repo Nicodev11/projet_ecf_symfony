@@ -23,19 +23,27 @@ class RestaurantHoursFormType extends AbstractType
                 'disabled' => true
             ])
             ->add('Opening_lunch', TimeType::class, [
-                'widget' => 'single_text',
+                'widget' => 'choice',
+                'hours' => range(10, 16),
+                'minutes' => array("0"=>"0","15"=>"15","30"=>"30","45"=>"45"),
                 'attr' => ['class' => 'form-control'],
             ])
             ->add('Closing_lunch', TimeType::class, [
-                'widget' => 'single_text',
+                'widget' => 'choice',
+                'hours' => range(10, 16),
+                'minutes' => array("0"=>"0","15"=>"15","30"=>"30","45"=>"45"),
                 'attr' => ['class' => 'form-control']
                 ])
             ->add('Opening_dinner', TimeType::class, [
-                'widget' => 'single_text',
+                'widget' => 'choice',
+                'hours' => range(18, 23),
+                'minutes' => array("0"=>"0","15"=>"15","30"=>"30","45"=>"45"),
                 'attr' => ['class' => 'form-control']
                 ])
             ->add('Closing_dinner', TimeType::class, [
-                'widget' => 'single_text',
+                'widget' => 'choice',
+                'hours' => range(18, 23),
+                'minutes' => array("0"=>"0","15"=>"15","30"=>"30","45"=>"45"),
                 'attr' => ['class' => 'form-control']
                 ])
             ->add('Closed', CheckboxType::class, [
