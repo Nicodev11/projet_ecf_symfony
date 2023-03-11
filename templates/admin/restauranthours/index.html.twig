@@ -2,14 +2,13 @@
 
 {% block title %}Administration des plats{%endblock %} 
 
-{% block stylesheets %}
-  {{ encore_entry_link_tags('admin')}}
-{% endblock %}
-
 {% block javascripts %}
   {{ encore_entry_script_tags('admin')}}
 {% endblock %}
 
+{% block stylesheets %}
+  {{ encore_entry_link_tags('admin')}}
+{% endblock %}
 
 {% block body %}
 <div class="container dashboard">
@@ -48,7 +47,6 @@
               </td>
             </tr>
           {% endfor %}
-          {{ dump() }}
         </tbody>
       </table>
     </main>

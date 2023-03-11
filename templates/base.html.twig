@@ -15,9 +15,9 @@
 
         <!--- Fichiers JS --->
         <script src="{{ asset('assets/js/bootstrap.bundle.min.js')}}" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         {% block javascripts %}
             {{ encore_entry_script_tags('app')}}
-
         {% endblock %}
     </head>
     <body>
@@ -29,7 +29,7 @@
             {% block body %} {% endblock %}
         </main>
         <footer>
-            {% include "_partials/_footer.html.twig" %}
+            {{ render(controller('App\\Controller\\HomeController::footer'))}}
         </footer>
     </body>
 </html>
