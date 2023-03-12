@@ -19,6 +19,7 @@ class HomeController extends AbstractController
 
     #[Route(name: 'footer')]
     public function footer(RestaurantHoursRepository $restaurantHoursRepository): Response {
+        
         $hours = $restaurantHoursRepository->findAll();
 
         return $this->render('_partials/_footer.html.twig', compact('hours'));

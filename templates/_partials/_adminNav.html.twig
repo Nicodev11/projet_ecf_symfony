@@ -1,4 +1,4 @@
-<aside class="left-part admin-nav col-3 boder boder-light bg-white p-2">
+<aside class="left-part admin-nav col-md-3 col boder boder-light bg-white p-2">
   <div class="accordion" id="accordionPanelsStayOpenExample">
 
     <div class="accordion-item">
@@ -33,6 +33,42 @@
         </div>
       </div>
     </div>
+
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark me-3" viewBox="0 0 16 16">
+            <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+          </svg>
+          Catégories
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSix">
+        <div class="accordion-body">
+              <div class="card-body">
+                <ul class="list-unstyled">
+                  <li>
+                    <a
+                      href="{{ path('admin_categories_index') }}"
+                      class="btn btn-outline-info btn-nav w-100"
+                      ><i class="bi bi-list-ul"></i> Liste des catégories </a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="{{ path('admin_categories_add') }}"
+                      class="btn btn-outline-success btn-nav w-100"
+                    >
+                      <i class="bi bi-plus-circle-fill "></i>
+                      Ajouter une catégories
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </div>
+      </div>
 
 
     <div class="accordion-item">

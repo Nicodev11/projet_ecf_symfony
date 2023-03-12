@@ -17,7 +17,10 @@ class PlatesFormType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['attr' => ['class' => 'form-control']])
-            ->add('description', TextareaType::class, ['attr' => ['class' => 'form-control']])
+            ->add('description', TextareaType::class, [
+                'attr' => ['class' => 'form-control'],
+                'required' => false
+                ])
             ->add('price', NumberType::class, ['attr' => ['class' => 'form-control']])
             ->add('categories', null , ['attr' => ['class' => 'form-control']])
             ->add('images', FileType::class, [

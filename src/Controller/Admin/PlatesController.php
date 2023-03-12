@@ -4,9 +4,11 @@ namespace App\Controller\Admin;
 
 use App\Entity\Plates;
 use App\Form\PlatesFormType;
+use App\Repository\CategoriesRepository;
 use App\Repository\PlatesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -69,8 +71,6 @@ class PlatesController extends AbstractController
             'PlatesForm' => $form->createView()
         ]);
     }
-
-
 
     #[Route('/suppression/{id}', name: 'delete')]
     public function delete(Plates $plate): Response

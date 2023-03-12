@@ -15,11 +15,11 @@ class CategoriesFixtures extends Fixture
     
         public function load(ObjectManager $manager): void
     {
-        $parent = $this->createCategory('Entrées', null, $manager);
-        $parent = $this->createCategory('Plats', null, $manager);
-        $parent = $this->createCategory('Desserts', null, $manager);
-        $parent = $this->createCategory('Boissons', null, $manager);
-        $parent = $this->createCategory('Menus', null, $manager);
+        $parent = $this->createCategory('Entrée', null, $manager);
+        $parent = $this->createCategory('Plat', null, $manager);
+        $parent = $this->createCategory('Dessert', null, $manager);
+        $parent = $this->createCategory('Boisson', null, $manager);
+        $parent = $this->createCategory('Menu', null, $manager);
 
         $manager->flush();
     }

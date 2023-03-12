@@ -38,7 +38,6 @@ class RestaurantHours
     private ?bool $ClosedDinner = null;
 
 
-
     public function __construct()
     {
     }
@@ -137,6 +136,6 @@ class RestaurantHours
 
         return $this;
     }
-
+    
 
 }
