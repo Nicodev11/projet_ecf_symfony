@@ -1,6 +1,5 @@
 {{ form_start(CategoriesForm) }}
 <fieldset class="mb-3">
-  {{ form_row(CategoriesForm.parent, { label: "Catégorie" }) }}
   {{ form_row(CategoriesForm.name, { label: "Nom" }) }}
 </fieldset>
 <button type="submit" label class="btn btn-warning my-3">{{button_label|default('Ajouter')}}</button>

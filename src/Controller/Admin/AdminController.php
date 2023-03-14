@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Repository\RestaurantHoursRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,8 +11,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends AbstractController
 {
     #[Route('/', name: 'index')]
-    public function index(): Response
+    public function index(RestaurantHoursRepository $restaurantHoursRepository): Response
     {
-        return $this->render('admin/index.html.twig');
+
+        $days = $restaurantHoursRepository->findAll();
+
+        return $this->render('admin/index.html.twig', compact('days'));
     }
 }

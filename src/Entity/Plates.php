@@ -35,7 +35,6 @@ class Plates
     private ?string $description = null;
 
 
-
     public function __toString()
     {
         return $this->name;

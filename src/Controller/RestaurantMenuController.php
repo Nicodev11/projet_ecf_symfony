@@ -16,6 +16,6 @@ class RestaurantMenuController extends AbstractController
         $plates = $platesRepository->findAll();
         $menus = $menusRepository->findAll();
 
-        return $this->render('restaurant_menu/index.html.twig', compact('plates', 'menus'));
+        return $this->render('pages/restaurant_menu/index.html.twig', compact('plates', 'menus'));
     }
 }

@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\RestaurantHoursRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -36,6 +34,9 @@ class RestaurantHours
 
     #[ORM\Column(nullable: true)]
     private ?bool $ClosedDinner = null;
+
+    #[ORM\Column]
+    private ?int $nbPlaces = null;
 
 
     public function __construct()
@@ -136,6 +137,17 @@ class RestaurantHours
 
         return $this;
     }
-    
+
+    public function getNbPlaces(): ?int
+    {
+        return $this->nbPlaces;
+    }
+
+    public function setNbPlaces(int $nbPlaces): self
+    {
+        $this->nbPlaces = $nbPlaces;
+
+        return $this;
+    }
 
 }
